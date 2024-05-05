@@ -33,7 +33,7 @@ function Profile() {
                 }
             }
             setUsers(tempUser);
-            console.log(users)
+            console.log(tempUser)
         } catch (error) {
             console.error('Error fetching users:', error);
         }
