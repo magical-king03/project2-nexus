@@ -19,7 +19,7 @@ function Profile() {
 
     const fetchUsers = async () => {
         try {
-            const response = await fetch('http://localhost:4000/api-users');
+            const response = await fetch('https://social-app-backend-woad.vercel.app/api-users');
             const data = await response.json();
             let email = username + '@gmail.com';
             let tempUser = [];
@@ -60,7 +60,7 @@ function Profile() {
 
     const handleSureDelete = async () => {
         try {
-            let result = await fetch('http://localhost:4000/delete', {
+            let result = await fetch('https://social-app-backend-woad.vercel.app/delete', {
                 method: 'post',
                 body: JSON.stringify({ email: localStorage.getItem('email') }),
                 headers: {

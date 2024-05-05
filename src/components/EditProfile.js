@@ -43,7 +43,7 @@ function EditCard() {
     };
 
     const handleUpdate = async () => {
-        let result = await fetch('http://localhost:4000/update', {
+        let result = await fetch('https://social-app-backend-woad.vercel.app/update', {
             method: 'post',
             body: JSON.stringify({ nameValue, numberValue, emailValue, profilePic, coverPic, gender, dateOfBirth, hobby }),
             headers: {

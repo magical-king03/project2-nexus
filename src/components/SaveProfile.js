@@ -60,7 +60,7 @@ const ProfileForm = () => {
 
     const handleSave = async (e) => {
         e.preventDefault()
-        let result = await fetch('http://localhost:4000/save', {
+        let result = await fetch('https://social-app-backend-woad.vercel.app/save', {
             method: 'post',
             body: JSON.stringify({ userName, phNo, email, profilePic, coverPic, gender, dateOfBirth, hobby }),
             headers: {
