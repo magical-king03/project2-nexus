@@ -6,22 +6,25 @@ const Carousel = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const touchStartX = useRef(null);
   const images = [image1, image2, image3]
-
+  // To change the pictures with the timing of 5 seconds
   useEffect(() => {
-      const interval = setInterval(() => {
-        setCurrentImage((prevImage) => (prevImage + 1) % images.length);
-      }, 5000);
-      return () => clearInterval(interval);
+    const interval = setInterval(() => {
+      setCurrentImage((prevImage) => (prevImage + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
   }, [images.length]);
 
+  // Button which changes to the next image
   const handleNext = () => {
     setCurrentImage((prevImage) => (prevImage + 1) % images.length);
   }
 
+  // Button which changes to the previous image
   const handlePrev = () => {
     setCurrentImage((prevImage) => (prevImage - 1 + images.length) % images.length);
   }
 
+  // The below two functions are for when the user slides the picture in phone mode, the next picture or previous one comes
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
   };

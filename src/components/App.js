@@ -1,5 +1,5 @@
 import '../css/App.css';
-// import Login from './Login'
+// Importing every pages
 import SignUp from './SignUp'
 import Profile from './Profile'
 import SaveProfile from './SaveProfile';
@@ -13,7 +13,6 @@ function App() {
     <div className="">
       <Routes>
         <Route path='/' element={<Home />} />
-        {/* <Route path='/login' element={<Login />} /> */}
         <Route path='/signup' element={<SignUp />} />
         <Route path="/profile/:username" element={<Profile />} />
         <Route path='/save' element={<SaveProfile />} />

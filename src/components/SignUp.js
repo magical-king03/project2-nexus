@@ -44,11 +44,8 @@ const Signup = () => {
     setLoggedMail(localStorage.getItem("email"))
   }, [loggedMail])
 
-  // const [loggedMail, setLoggedMail] = useState('')
   const [emailLogin, setEmailLogin] = useState('');
   const [passwordLogin, setPasswordLogin] = useState('');
-
-  // const navigate = useNavigate();
 
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
@@ -84,39 +81,8 @@ const Signup = () => {
 
   return (
     <div className='flex items-center justify-center m-5 login-signup-body'>
-      {/* <div>
-        <h1 className='font-bold text-3xl mb-4'>Signup Page</h1>
-        <form>
-          <input
-            type="email"
-            placeholder="Your Email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className='m-4 p-3 rounded-lg border border-1 border-black w-full'
-          />
-          <br />
-          <input
-            type="password"
-            placeholder="Your Password"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className='m-4 p-3 rounded-lg border border-1 border-black w-full'
-          />
-          <br />
-          <button onClick={handleSubmit} className='px-4 py-2 border border-1 border-black rounded-lg text-white bg-black m-4'>Signup</button>
-        </form>
-        <div>
-          <button onClick={handleClick} className='border border-1 border-black m-4 p-4 w-full rounded-3xl'>Continue with google</button>
-        </div>
-        <p className='ml-4'>Need to Login? <Link to="/login" className='underline text-[#0000ff]'>Login</Link></p>
-      </div> */}
-
-
       <div className="w-[350px] h-[500px] bg-[#ff0000] rounded-[10px] main">
         <input type="checkbox" id="chk" aria-hidden="true" />
-
         <div className="realtive w-full h-full signup">
           <form>
             <label htmlFor="chk" aria-hidden="true" className="text-[#fff] text-[2.3em] flex justify-center m-[30px] font-bold cursor-pointer">Sign up</label>
@@ -132,7 +98,6 @@ const Signup = () => {
                 <p>Continue with google</p>
               </button>
             </div>
-
           </form>
         </div>
 
@@ -154,16 +119,6 @@ const Signup = () => {
           </form>
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
     </div>
   )
 }

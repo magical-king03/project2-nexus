@@ -14,13 +14,14 @@ function Profile() {
 
     useEffect(() => {
         if(localStorage.getItem('email')){
-            fetchUsers();
+            fetchData();
         }else{
             navigate('/signup')
         }
     });
 
-    const fetchUsers = async () => {
+    // This function fetches all the data in the mongo db database
+    const fetchData = async () => {
         try {
             const response = await fetch('https://social-app-backend-woad.vercel.app/api-users');
             const data = await response.json();
@@ -35,6 +36,7 @@ function Profile() {
                     tempUser.push(user);
                 }
             }
+            // Stores only the details of the user stored in the logged in mail id
             setUsers(tempUser);
             console.log(tempUser)
         } catch (error) {

@@ -21,7 +21,7 @@ function Home() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [currentImage, setCurrentImage] = useState(0);
     const handleImageChange = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images1.length); // Cycle through images
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images1.length); 
     };
 
     useEffect(() => {

@@ -63,7 +63,8 @@ function EditCard() {
         }
     }
 
-    const convertToBase64PP = (e) => {
+    // These two functions are used to convert the image url into base64 url for profile picture and cover picture respectively
+    const convertToBase64ProfilePic = (e) => {
         var reader = new FileReader()
         reader.readAsDataURL(e.target.files[0])
         reader.onload = () => {
@@ -75,7 +76,7 @@ function EditCard() {
         }
     }
 
-    const convertToBase64CP = (e) => {
+    const convertToBase64CoverPic = (e) => {
         var reader = new FileReader()
         reader.readAsDataURL(e.target.files[0])
         reader.onload = () => {
@@ -136,7 +137,7 @@ function EditCard() {
                         <div className="mb-4">
                             <label className="block text-gray-400 text-sm font-bold mb-2" htmlFor="profilePic">Select your profile photo</label>
                             <div className='flex border-1 border rounded-[5px] items-center p-2 justify-between'>
-                                <input accept="image/*" type="file" id="profilePic" onChange={convertToBase64PP} className="w-[60%] pl-2 border-0 text-white" />
+                                <input accept="image/*" type="file" id="profilePic" onChange={convertToBase64ProfilePic} className="w-[60%] pl-2 border-0 text-white" />
                                 <div className='pr-3 m-0 '>
                                     {profilePic && <img width={100} height={100} src={profilePic} className="w-[50px] h-[50px] mt-2 border border-gray-300 rounded-full " alt="Profile Pic" />}
                                 </div>
@@ -145,7 +146,7 @@ function EditCard() {
                         <div className="mb-4">
                             <label className="block text-gray-400 text-sm font-bold mb-2" htmlFor="coverPic">Select your cover photo</label>
                             <div className='flex border-1 border rounded-[5px] items-center p-2 justify-between'>
-                                <input accept="image/*" type="file" id="coverPic" onChange={convertToBase64CP} className="w-[60%] pl-2 border-0 text-white" />
+                                <input accept="image/*" type="file" id="coverPic" onChange={convertToBase64CoverPic} className="w-[60%] pl-2 border-0 text-white" />
                                 <div className='m-0 '>
                                     {coverPic && <img width={100} height={100} src={coverPic} className="w-[100px] h-[50px] mt-2 border border-gray-300 rounded " alt="Profile Pic" />}
                                 </div>
