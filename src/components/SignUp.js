@@ -26,7 +26,11 @@ const Signup = () => {
         localStorage.setItem('user', JSON.stringify(user));
         navigate('/save')
       } catch (error) {
-        console.error(error);
+        if (error.toString().includes("auth/email-already-in-use")) {
+          alert("Email already exists... Please login to continue")
+        }else if(error.toString().includes("auth/weak-password")){
+          alert("Password should contain atleast 6 characters...")
+        }
       }
     }
   }
@@ -63,7 +67,9 @@ const Signup = () => {
         console.log(name)
         navigate(`/profile/${name}`);
       } catch (error) {
-        console.error(error);
+        if (error.toString().includes("auth/invalid-credential")) {
+          alert("Invalid credentials... Please sign up")
+        }
       }
     }
   }
