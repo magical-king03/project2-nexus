@@ -13,9 +13,9 @@ function Profile() {
     const { username } = useParams();
 
     useEffect(() => {
-        if(localStorage.getItem('email')){
+        if (localStorage.getItem('email')) {
             fetchData();
-        }else{
+        } else {
             navigate('/signup')
         }
     });
@@ -56,7 +56,10 @@ function Profile() {
 
 
     const handleDelete = () => {
-        setDeleteCheck(true);
+        let email = username + '@gmail.com';
+        if (email === localStorage.getItem('email')) {
+            setDeleteCheck(true);
+        }
     };
 
     const handleCancel = () => {
@@ -74,7 +77,7 @@ function Profile() {
             });
             setDeleteCheck(false);
             if (result.status === 200) {
-                navigate('/login');
+                navigate('/signup');
             }
         } catch (error) {
             console.error('Error deleting user:', error);
@@ -82,19 +85,22 @@ function Profile() {
     };
 
     const handleEdit = () => {
-        users.forEach((user) => {
-            let profileDetails = {
-                name: user.name,
-                email: user.email,
-                number: user.number,
-                profilePic: user.profilePic,
-                coverPic: user.coverPic,
-                gender: user.gender,
-                dateOfBirth: user.dateOfBirth,
-                hobby: user.hobby,
-            };
-            navigate('/edit', { state: profileDetails });
-        });
+        let email = username + '@gmail.com';
+        if (email === localStorage.getItem('email')) {
+            users.forEach((user) => {
+                let profileDetails = {
+                    name: user.name,
+                    email: user.email,
+                    number: user.number,
+                    profilePic: user.profilePic,
+                    coverPic: user.coverPic,
+                    gender: user.gender,
+                    dateOfBirth: user.dateOfBirth,
+                    hobby: user.hobby,
+                };
+                navigate('/edit', { state: profileDetails });
+            });
+        }
     };
 
     const handleQRCode = () => {
@@ -175,26 +181,26 @@ function Profile() {
                                 </table>
                             </div>
                             <div className='flex items-center'>
-                            <div className='mx-auto'>
-                                <button
-                                    className="mr-4 p-4 rounded-xl bg-[#008000] text-white text-[10px]"
-                                    onClick={handleEdit}
-                                >
-                                    Edit profile
-                                </button>
-                                <button
-                                    className="m-4 p-4 rounded-xl bg-[#ff0000] text-white text-[10px]"
-                                    onClick={handleDelete}
-                                >
-                                    Delete profile
-                                </button>
-                                <button
-                                    className="m-4 p-4 rounded-xl bg-[#000000] text-white text-[10px]"
-                                    onClick={handleQRCode}
-                                >
-                                    Generate QR Code
-                                </button>
-                            </div>
+                                <div className='mx-auto'>
+                                    <button
+                                        className="mr-4 p-4 rounded-xl bg-[#008000] text-white text-[10px]"
+                                        onClick={handleEdit}
+                                    >
+                                        Edit profile
+                                    </button>
+                                    <button
+                                        className="m-4 p-4 rounded-xl bg-[#ff0000] text-white text-[10px]"
+                                        onClick={handleDelete}
+                                    >
+                                        Delete profile
+                                    </button>
+                                    <button
+                                        className="m-4 p-4 rounded-xl bg-[#000000] text-white text-[10px]"
+                                        onClick={handleQRCode}
+                                    >
+                                        Generate QR Code
+                                    </button>
+                                </div>
                             </div>
 
                             {qrcode && (
