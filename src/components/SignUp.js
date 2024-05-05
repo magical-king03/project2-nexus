@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { auth, provider, email_auth } from '../config';
 import { createUserWithEmailAndPassword, signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import '../css/Signup.css'
+import '../css/App.css'
 
 const Signup = () => {
 

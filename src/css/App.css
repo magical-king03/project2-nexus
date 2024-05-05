@@ -51,6 +51,7 @@
 .main{
 background: url("https://img.freepik.com/premium-vector/abstract-realistic-technology-particle-background_23-2148414765.jpg?w=740") no-repeat center/ cover;
 box-shadow: 5px 20px 50px #000;
+overflow: hidden;
 }
 
 .btn-primary:hover {

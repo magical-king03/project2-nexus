@@ -4,22 +4,18 @@ import Nav from "./Nav";
 import { useState, useEffect } from "react";
 import '../css/App.css'
 import image1 from '../img/insta-post1.jpg'
-import image2 from '../img/insta-post2.jpg'
 import image3 from '../img/insta-post3.jpg'
 import image4 from '../img/insta-post4.jpg'
-import image5 from '../img/insta-post5.jpg'
 import image6 from '../img/insta-post6.jpg'
 
 function Home() {
 
     const images1 = [
         { id: 1, src: image1 },
-        { id: 2, src: image2 },
         { id: 3, src: image3 },
     ];
     const images2 = [
         { id: 1, src: image4 },
-        { id: 2, src: image5 },
         { id: 3, src: image6 },
     ];
     const [currentIndex, setCurrentIndex] = useState(0);
