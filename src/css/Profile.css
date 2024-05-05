@@ -1,0 +1,44 @@
+.Loader{
+	position: absolute;
+	width: 200px;
+	height: 40px;
+	margin: -20px 0 0 -71px;
+	background: #fff;
+	filter: contrast(20);
+}
+.Loader .dot{
+	position: absolute;
+	margin: 15px;
+	width: 16px;
+	height: 16px;
+	background: #000;
+	border-radius: 50%;
+	filter: blur(4px);
+	transform: translateX(0);
+	animation: dot 3s infinite;
+}
+.Loader .dots{
+	margin: 15px 0 0 31px;
+	transform: translateX(0);
+	animation: dots 3s infinite;
+}
+.Loader .dots span{
+	display: block;
+	float: left;
+	width: 16px;
+	height: 16px;
+	margin-left: 16px;
+	filter: blur(4px);
+	background: #000;
+	border-radius: 50%;
+}
+@keyframes dot{
+	50%{
+		transform: translateX(160px);
+	}
+}
+@keyframes dots{
+	50%{
+		transform: translateX(-30px);
+	}
+}
