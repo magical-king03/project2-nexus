@@ -62,7 +62,7 @@ const ProfileForm = () => {
         e.preventDefault()
         if (userName === "" || phNo === "" || gender === "" || dateOfBirth === "" || profilePic === "" || coverPic === "" || hobby === "") {
             alert("Fill all the details...")
-        } else if (phNo.length() !== 10) {
+        } else if (phNo.length !== 10) {
             alert("Enter the phone number correctly...")
         } else {
             let result = await fetch('https://social-app-backend-woad.vercel.app/save', {
