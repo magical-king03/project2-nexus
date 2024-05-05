@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import '../css/SaveProfile.css'
+import React, { useState, useEffect } from 'react';
+import '../css/App.css'
 import { useNavigate } from 'react-router-dom';
 const ProfileForm = () => {
     const [slide, setSlide] = useState(1);
@@ -60,19 +60,31 @@ const ProfileForm = () => {
 
     const handleSave = async (e) => {
         e.preventDefault()
-        let result = await fetch('https://social-app-backend-woad.vercel.app/save', {
-            method: 'post',
-            body: JSON.stringify({ userName, phNo, email, profilePic, coverPic, gender, dateOfBirth, hobby }),
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        })
-        console.log(email);
-        if (result.status === 200) {
-            let name = email.substring(0, email.indexOf('@'))
-            navigate(`/profile/${name}`)
+        if (userName === "" || phNo === "" || gender === "" || dateOfBirth === "" || profilePic === "" || coverPic === "" || hobby === "") {
+            alert("Fill all the details...")
+        } else if (phNo.length() !== 10) {
+            alert("Enter the phone number correctly...")
+        } else {
+            let result = await fetch('https://social-app-backend-woad.vercel.app/save', {
+                method: 'post',
+                body: JSON.stringify({ userName, phNo, email, profilePic, coverPic, gender, dateOfBirth, hobby }),
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            })
+            console.log(email);
+            if (result.status === 200) {
+                let name = email.substring(0, email.indexOf('@'))
+                navigate(`/profile/${name}`)
+            }
         }
     };
+    useEffect(() => {
+        if (localStorage.getItem('email')) {
+        } else {
+            navigate('/signup')
+        }
+    });
 
     return (
         <div className="flex items-center justify-center w-[350px] h-[500px] rounded-[10px] main">

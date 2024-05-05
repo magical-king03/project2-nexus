@@ -1,47 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap');
-body{
-	margin: 0;
-	padding: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 100vh;
-	font-family: 'Jost', sans-serif;
-	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-}
-.main{
-	overflow: hidden;
-	background: url("https://img.freepik.com/premium-vector/abstract-realistic-technology-particle-background_23-2148414765.jpg?w=740") no-repeat center/ cover;
-	box-shadow: 5px 20px 50px #000;
-}
-#chk{
-	display: none;
-}
-label{
-	transition: .5s ease-in-out;
-}
-.button{
-	transition: .2s ease-in;
-}
-.button:hover{
-	background: #6d44b8;
-}
-.login{
-	border-radius: 60% / 10%;
-	transform: translateY(-180px);
-	transition: .8s ease-in-out;
-}
-.login label{
-	color: #573b8a;
-	transform: scale(.6);
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Jost', sans-serif;
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
 }
 
-#chk:checked ~ .login{
-	transform: translateY(-500px);
+.main {
+    background: url("https://img.freepik.com/premium-vector/abstract-realistic-technology-particle-background_23-2148414765.jpg?w=740") no-repeat center/ cover;
+    box-shadow: 5px 20px 50px #000;
+    overflow: hidden;
 }
-#chk:checked ~ .login label{
-	transform: scale(1);	
+
+#chk {
+    display: none;
 }
-#chk:checked ~ .signup label{
-	transform: scale(.6);
+
+label {
+    transition: .5s ease-in-out;
+}
+
+.button {
+    transition: .2s ease-in;
+}
+
+.button:hover {
+    background: #6d44b8;
+}
+
+.login {
+    border-radius: 60% / 10%;
+    transform: translateY(-180px);
+    transition: .8s ease-in-out;
+}
+
+.login label {
+    color: #573b8a;
+    transform: scale(.6);
+}
+
+#chk:checked~.login {
+    transform: translateY(-500px);
+}
+
+#chk:checked~.login label {
+    transform: scale(1);
+}
+
+#chk:checked~.signup label {
+    transform: scale(.6);
 }

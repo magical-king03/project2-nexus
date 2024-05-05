@@ -3,7 +3,7 @@ import { signOut } from 'firebase/auth';
 import { useParams, useNavigate } from 'react-router-dom';
 import QRCode from 'react-qr-code';
 import { auth } from '../config';
-import '../css/Profile.css'
+import '../css/App.css'
 
 function Profile() {
     const navigate = useNavigate();
@@ -13,9 +13,12 @@ function Profile() {
     const { username } = useParams();
 
     useEffect(() => {
-        console.log(users)
-        fetchUsers();
-    }, [username]);
+        if(localStorage.getItem('email')){
+            fetchUsers();
+        }else{
+            navigate('/signup')
+        }
+    });
 
     const fetchUsers = async () => {
         try {
@@ -109,7 +112,7 @@ function Profile() {
                         Log out
                     </button>
                 </div>
-                {users.length == 0 && (
+                {users.length === 0 && (
                     <div className='flex items-center justify-center'>
                         <div class="Loader ">
                             <span class="dot"></span>

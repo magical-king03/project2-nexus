@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom'
-import React, { useState } from 'react'
-import '../css/SaveProfile.css'
+import React, { useState, useEffect } from 'react'
+import '../css/App.css'
 
 function EditCard() {
     const location = useLocation()
@@ -9,7 +9,7 @@ function EditCard() {
     const email = localStorage.getItem('email')
     const navigate = useNavigate()
     const [nameValue, setNameValue] = useState(data.name);
-    const [emailValue, setEmailValue] = useState(data.email)
+    const emailValue = data.email
     const [numberValue, setNumberValue] = useState(data.number)
     const [profilePic, setProfilePic] = useState(data.profilePic)
     const [coverPic, setCoverPic] = useState(data.coverPic)
@@ -43,17 +43,23 @@ function EditCard() {
     };
 
     const handleUpdate = async () => {
-        let result = await fetch('https://social-app-backend-woad.vercel.app/update', {
-            method: 'post',
-            body: JSON.stringify({ nameValue, numberValue, emailValue, profilePic, coverPic, gender, dateOfBirth, hobby }),
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        })
-        console.log(result)
-        if (result.status === 200) {
-            let name = email.substring(0, email.indexOf('@'))
-            navigate(`/profile/${name}`)
+        if (nameValue === "" || numberValue === "" || gender === "" || dateOfBirth === "" || profilePic === "" || coverPic === "" || hobby === "") {
+            alert("Fill all the details...")
+        } else if (numberValue.length() !== 10) {
+            alert("Enter the phone number correctly...")
+        } else {
+            let result = await fetch('https://social-app-backend-woad.vercel.app/update', {
+                method: 'post',
+                body: JSON.stringify({ nameValue, numberValue, emailValue, profilePic, coverPic, gender, dateOfBirth, hobby }),
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            })
+            console.log(result)
+            if (result.status === 200) {
+                let name = email.substring(0, email.indexOf('@'))
+                navigate(`/profile/${name}`)
+            }
         }
     }
 
@@ -81,6 +87,13 @@ function EditCard() {
         }
     }
 
+    useEffect(() => {
+        if (localStorage.getItem('email')) {
+        } else {
+            navigate('/signup')
+        }
+    });
+
     return (
         <div className="flex items-center justify-center w-[350px] h-[500px] rounded-[10px] main">
             <div className="p-8 rounded-lg shadow-lg">
@@ -102,7 +115,7 @@ function EditCard() {
                         <div className="">
                             <label className="block text-gray-400 text-sm" htmlFor="phNo">Specify your gender</label>
                             {
-                                gender == 'Male' ?
+                                gender === 'Male' ?
                                     <>
                                         <input type="radio" className='m-4 p-3' name="gender" value='Male' onChange={() => setGender('Male')} checked /><span className='text-white'>Male</span>
                                         <input type="radio" className='m-4 p-3' name="gender" value='Female' onChange={() => setGender('Female')} /><span className='text-white'>Female</span>
