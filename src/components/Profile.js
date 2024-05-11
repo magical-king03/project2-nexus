@@ -184,19 +184,19 @@ function Profile() {
                             <div className='flex items-center'>
                                 <div className='mx-auto'>
                                     <button
-                                        className="mr-4 p-4 rounded-xl bg-[#008000] text-white text-[10px]"
+                                        className="mr-4 p-4 rounded-xl bg-[#008000] text-white text-[10px] md:text-l"
                                         onClick={handleEdit}
                                     >
                                         Edit profile
                                     </button>
                                     <button
-                                        className="m-4 p-4 rounded-xl bg-[#ff0000] text-white text-[10px]"
+                                        className="m-4 p-4 rounded-xl bg-[#ff0000] text-white text-[10px] md:text-l"
                                         onClick={handleDelete}
                                     >
                                         Delete profile
                                     </button>
                                     <button
-                                        className="m-4 p-4 rounded-xl bg-[#000000] text-white text-[10px]"
+                                        className="m-4 p-4 rounded-xl bg-[#000000] text-white text-[10px] md:text-l"
                                         onClick={handleQRCode}
                                     >
                                         Generate QR Code
