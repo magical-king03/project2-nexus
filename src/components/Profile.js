@@ -13,11 +13,8 @@ function Profile() {
     const { username } = useParams();
 
     useEffect(() => {
-        if (localStorage.getItem('email')) {
             fetchData();
-        } else {
-            navigate('/signup')
-        }
+        
     });
 
     // This function fetches all the data in the mongo db database
