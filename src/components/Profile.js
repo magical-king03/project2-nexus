@@ -59,6 +59,8 @@ function Profile() {
         let email = username + '@gmail.com';
         if (email === localStorage.getItem('email')) {
             setDeleteCheck(true);
+        } else {
+            alert("You can't delete this profile...")
         }
     };
 
@@ -100,6 +102,8 @@ function Profile() {
                 };
                 navigate('/edit', { state: profileDetails });
             });
+        } else {
+            alert("You can't edit this profile...")
         }
     };
 
