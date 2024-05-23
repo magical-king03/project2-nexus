@@ -223,3 +223,30 @@ label {
 #chk:checked~.signup label {
 	transform: scale(.6);
 }
+
+.layer{
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 120%;
+	width: 120%;
+	background-position: right;
+	background-size: cover;
+}
+
+.layer:nth-child(1){
+	background-image: url('../img/mouse_change_1/ms1_img1.png');
+	
+}
+.layer:nth-child(2){
+	background-image: url('../img/mouse_change_1/ms1_img2.png');
+}
+.layer:nth-child(3){
+	background-image: url('../img/mouse_change_1/ms1_img3.png');
+}
+.layer:nth-child(4){
+	background-image: url('../img/mouse_change_1/ms1_img4.png');
+}
+.layer:nth-child(5){
+	background-image: url('../img/mouse_change_1/ms1_img5.png');
+}
