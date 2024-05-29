@@ -1,43 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap');
-.App {
-	text-align: center;
-}
-
-.App-logo {
-	height: 40vmin;
-	pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-	.App-logo {
-		animation: App-logo-spin infinite 20s linear;
-	}
-}
-
-.App-header {
-	background-color: #282c34;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-size: calc(10px + 2vmin);
-	color: white;
-}
-
-.App-link {
-	color: #0000ff;
-}
-
-@keyframes App-logo-spin {
-	from {
-		transform: rotate(0deg);
-	}
-
-	to {
-		transform: rotate(360deg);
-	}
-}
 
 .btn-primary {
 	padding: 10px 20px;
@@ -49,10 +10,30 @@
 }
 
 .main {
-	background: url("https://img.freepik.com/premium-vector/abstract-realistic-technology-particle-background_23-2148414765.jpg?w=740") no-repeat center/ cover;
+	position: relative;
 	box-shadow: 5px 20px 50px #000;
+	background: url("../img/logib.jpg") no-repeat center/cover;
 	overflow: hidden;
 }
+
+.main::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	/* Change 0, 0, 0 to your desired overlay color */
+	z-index: 1;
+	pointer-events: none;
+}
+
+.main>* {
+	position: relative;
+	z-index: 2;
+}
+
 
 .btn-primary:hover {
 	background-color: #805AD5;
@@ -73,99 +54,6 @@
 	color: #03a403;
 }
 
-.parallax1 {
-	widows: 100%;
-	height: 650px;
-	background-image: url(https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg);
-	background-size: cover;
-	background-position: center;
-	background-attachment: fixed;
-}
-
-.content2 {
-	width: 40%;
-	padding: 20px;
-	text-align: justify;
-	margin-top: 100px;
-}
-
-.parallax2 {
-	float: right;
-	width: 50%;
-	background-image: url(https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg);
-	background-size: cover;
-	background-position: center;
-	background-attachment: fixed;
-}
-
-.parallax3 {
-	width: 50%;
-	background-image: url(https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg);
-	background-size: cover;
-	background-position: center;
-	background-attachment: fixed;
-	margin-top: 300px;
-}
-
-.content3 {
-	margin-top: -560px;
-	width: 47%;
-	font-size: 18px;
-	padding: 20px;
-	letter-spacing: 2px;
-	float: right;
-}
-
-.Loader {
-	position: absolute;
-	width: 200px;
-	height: 40px;
-	margin: -20px 0 0 -71px;
-	background: #fff;
-	filter: contrast(20);
-}
-
-.Loader .dot {
-	position: absolute;
-	margin: 15px;
-	width: 16px;
-	height: 16px;
-	background: #000;
-	border-radius: 50%;
-	filter: blur(4px);
-	transform: translateX(0);
-	animation: dot 3s infinite;
-}
-
-.Loader .dots {
-	margin: 15px 0 0 31px;
-	transform: translateX(0);
-	animation: dots 3s infinite;
-}
-
-.Loader .dots span {
-	display: block;
-	float: left;
-	width: 16px;
-	height: 16px;
-	margin-left: 16px;
-	filter: blur(4px);
-	background: #000;
-	border-radius: 50%;
-}
-
-@keyframes dot {
-	50% {
-		transform: translateX(160px);
-	}
-}
-
-@keyframes dots {
-	50% {
-		transform: translateX(-30px);
-	}
-}
-
 .input-field {
 	width: 100%;
 	padding: 10px;
@@ -174,15 +62,48 @@
 	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-body {
+.login-signup-body {
 	margin: 0;
 	padding: 0;
+	min-height: 100vh;
+	font-family: 'Jost', sans-serif;
+	background: url(../img/home.jpg) no-repeat center/cover;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	color: #d5c7f7;
+}
+
+
+
+.login-signup-body::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1;
+	pointer-events: none;
+}
+
+.login-signup-body>* {
+	position: relative;
+	z-index: 2;
+}
+
+.bg-opacity {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+body {
+	margin: 0;
+	padding: 0;
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
-	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+	background: url(../img/home.jpg) no-repeat center/cover;
 }
 
 #chk {
@@ -222,31 +143,4 @@ label {
 
 #chk:checked~.signup label {
 	transform: scale(.6);
-}
-
-.layer{
-	position: absolute;
-	left: 0;
-	top: 0;
-	height: 120%;
-	width: 120%;
-	background-position: right;
-	background-size: cover;
-}
-
-.layer:nth-child(1){
-	background-image: url('../img/mouse_change_1/ms1_img1.png');
-	
-}
-.layer:nth-child(2){
-	background-image: url('../img/mouse_change_1/ms1_img2.png');
-}
-.layer:nth-child(3){
-	background-image: url('../img/mouse_change_1/ms1_img3.png');
-}
-.layer:nth-child(4){
-	background-image: url('../img/mouse_change_1/ms1_img4.png');
-}
-.layer:nth-child(5){
-	background-image: url('../img/mouse_change_1/ms1_img5.png');
 }

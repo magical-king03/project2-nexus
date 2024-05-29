@@ -19,12 +19,10 @@ const Signup = () => {
     } else {
       try {
         const userCredential = await createUserWithEmailAndPassword(email_auth, email, password);
-        console.log(userCredential);
         const user = userCredential.user;
         localStorage.setItem('email', email)
-        localStorage.setItem('token', user.accessToken);
-        localStorage.setItem('user', JSON.stringify(user));
-        navigate('/save')
+        console.log(user)
+        navigate('/')
       } catch (error) {
         if (error.toString().includes("auth/email-already-in-use")) {
           alert("Email already exists... Please login to continue")
@@ -38,7 +36,7 @@ const Signup = () => {
     signInWithPopup(auth, provider).then((data) => {
       setEmail(data.user.email)
       localStorage.setItem("email", data.user.email);
-      navigate("/save")
+      navigate("/")
     }).catch((error) => {
       console.error();
     })
@@ -57,15 +55,10 @@ const Signup = () => {
       alert("Fill all the details...")
     } else {
       try {
-        console.log("hi")
         const userCredential = await signInWithEmailAndPassword(email_auth, emailLogin, passwordLogin);
         const user = userCredential.user;
-        console.log(user)
         localStorage.setItem('email', user.email);
-        console.log(emailLogin)
-        let name = emailLogin.substring(0, emailLogin.indexOf('@'))
-        console.log(name)
-        navigate(`/profile/${name}`);
+        navigate('/');
       } catch (error) {
         if (error.toString().includes("auth/invalid-credential")) {
           alert("Invalid credentials... Please sign up")
@@ -77,9 +70,7 @@ const Signup = () => {
     signInWithPopup(auth, provider).then((data) => {
       setEmail(data.user.email)
       localStorage.setItem("email", data.user.email);
-      let email = data.user.email
-      let name = email.substring(0, email.indexOf('@'))
-      navigate(`/profile/${name}`);
+      navigate('/');
     }).catch((error) => {
       console.error();
     })
@@ -87,7 +78,7 @@ const Signup = () => {
 
   return (
     <div className='flex items-center justify-center m-5 login-signup-body'>
-      <div className="w-[350px] h-[500px] bg-[#ff0000] rounded-[10px] main">
+      <div className="w-[350px] h-[500px] rounded-[10px] main">
         <input type="checkbox" id="chk" aria-hidden="true" />
         <div className="realtive w-full h-full signup">
           <form>
