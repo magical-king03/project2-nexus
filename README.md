@@ -1,7 +1,38 @@
-# Social app frontend
+# Project Overview
+## Restaurant Food Ordering Platform
+This project is a comprehensive web application for a restaurant that allows users to view available food items along with their prices and provides user authentication functionalities. The application is designed to offer a seamless user experience with static display elements and integrated user authentication via Firebase.
 
+# Features
+# 1. Home Page
+Static Display of Food Items: Users can view a list of food items available in the restaurant along with their respective prices. This is a static display to provide users with an overview of the menu.
+# 2. User Authentication
+### Signup/Login: 
+Users can sign up or log in using their email and password or through Google authentication. This functionality is powered by Firebase Authentication.
+### Firebase Integration:
+User data is securely stored and managed on Firebase, ensuring a reliable and scalable authentication process.
+### Logout: 
+Users can easily log out from their account, ensuring their session ends securely.
 
-
+# Technical Details
+# Frontend
+### React: 
+The frontend is built using React, offering a dynamic and responsive user interface.
+### Tailwind CSS: 
+Tailwind CSS is used for styling, providing a modern and consistent design across the application.
+# User Authentication Flow
+### Signup/Login Page:
+When users click on the signup button on the home page, they are redirected to the authentication page where they can either sign up or log in.
+### Email/Password Authentication:
+Users can sign up or log in using their email address and password.
+### Google Authentication:
+Users have the option to use their Google account for authentication.
+### Firebase Authentication:
+Firebase handles all authentication processes, ensuring that user credentials are stored securely.
+### Local Storage: 
+Once authenticated, the user’s email is stored in local storage to maintain the session state.
+### Logout:
+Users can log out by clearing their session data, ensuring their information remains secure.
+<hr>
 In the project directory, you can run:
 
 ### `npm start`
